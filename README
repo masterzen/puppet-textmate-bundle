@@ -1,0 +1,10 @@
+============= Puppet TextMate Bundle ==============
+
+This is a TextMate (http://www.macromates.com/) bundle for 
+Puppet manifests.
+
+It is very limited for the moment and only offer a few syntax highlighting
+and a comment preference.
+
+To install, clone this repository and drag the Puppet.tmbundle directory
+on the TextMate icon. The installation will then be automatic.
