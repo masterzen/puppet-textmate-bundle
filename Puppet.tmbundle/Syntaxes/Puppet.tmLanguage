@@ -19,10 +19,161 @@
 			<string>#line_comment</string>
 		</dict>
 		<dict>
-			<key>match</key>
-			<string>\b(class|file|node|package|exec)\b</string>
+			<key>begin</key>
+			<string>(?x)^\s*
+					(node|class)\s+
+					(\w+)\s* # identifier</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.puppet</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type.class.puppet</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?={)</string>
 			<key>name</key>
-			<string>storage.type.puppet</string>
+			<string>meta.definition.class.puppet</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>\b(inherits)\b\s+</string>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.modifier.puppet</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?={)</string>
+					<key>name</key>
+					<string>meta.definition.class.inherits.puppet</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>\b((?:\w+::)*\w+)\b</string>
+							<key>name</key>
+							<string>support.type.puppet</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>^\s*(define)\s+([a-zA-Z0-9_:]+)\s*(\()</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.function.puppet</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.puppet</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.begin.puppet</string>
+				</dict>
+			</dict>
+			<key>contentName</key>
+			<string>meta.function.arguments.puppet</string>
+			<key>end</key>
+			<string>\)</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.end.puppet</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.function.puppet</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>variable.other.puppet</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.variable.puppet</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>((\$+)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)\s*(?=,|\))</string>
+					<key>name</key>
+					<string>meta.function.argument.no-default.puppet</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>((\$+)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)(?:\s*(=)\s*)\s*</string>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>variable.other.puppet</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.variable.puppet</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator.assignment.puppet</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?=,|\))</string>
+					<key>name</key>
+					<string>meta.function.argument.default.puppet</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#parameter-default-types</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.puppet</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?x)^\s*
+					@?@?(file|exec|user|group|package|service|cron|sshkey|ssh_authorized_key)\s*\{</string>
+			<key>name</key>
+			<string>meta.definition.resource.puppet</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -31,25 +182,22 @@
 			<string>keyword.control.puppet</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>"</string>
-			<key>end</key>
-			<string>"</string>
+			<key>match</key>
+			<string>((\$?)"?[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*"?):</string>
 			<key>name</key>
-			<string>string.quoted.double.untitled</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>\\.</string>
-					<key>name</key>
-					<string>constant.character.escape.untitled</string>
-				</dict>
-			</array>
+			<string>entity.name.section.puppet</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#strings</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#variable</string>
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(?i)\b(import)\b\s*</string>
+			<string>(?i)\b(import|include)\b\s*</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -62,17 +210,10 @@
 			<string>(?=\s|$)</string>
 			<key>name</key>
 			<string>meta.include.puppet</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#language</string>
-				</dict>
-			</array>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b\w+\s*(?==&gt;)</string>
+			<string>\b\w+\s*(?==&gt;)\s*</string>
 			<key>name</key>
 			<string>constant.other.key.puppet</string>
 		</dict>
@@ -83,33 +224,27 @@
 			<string>constant.other.bareword.puppet</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>^(?=(\t| {4}))</string>
-			<key>end</key>
-			<string>(?=[^\t\s])</string>
+			<key>match</key>
+			<string>\b(escape|gsub|alert|crit|debug|notice|defined|emerg|err|failed|file|generate|include|info|realize|search|tag|tagged|template|warning)\b</string>
 			<key>name</key>
-			<string>meta.leading-tabs</string>
+			<string>support.function.puppet</string>
+		</dict>
+	</array>
+	<key>repository</key>
+	<dict>
+		<key>constants</key>
+		<dict>
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>meta.odd-tab</string>
-						</dict>
-						<key>2</key>
-						<dict>
-							<key>name</key>
-							<string>meta.even-tab</string>
-						</dict>
-					</dict>
 					<key>match</key>
-					<string>(\t| {4})(\t| {4})?</string>
+					<string>(?i)\b(false|true|running|present|absent|file|directory)\b</string>
+					<key>name</key>
+					<string>constant.language.php</string>
 				</dict>
 			</array>
 		</dict>
+		<key>double-quoted-string</key>
 		<dict>
 			<key>begin</key>
 			<string>"</string>
@@ -145,15 +280,6 @@
 				</dict>
 			</array>
 		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(escape|gsub|alert|crit|debug|notice|defined|emerg|err|failed|file|generate|include|info|realize|search|tag|tagged|template|warning)\b</string>
-			<key>name</key>
-			<string>support.function.puppet</string>
-		</dict>
-	</array>
-	<key>repository</key>
-	<dict>
 		<key>escaped_char</key>
 		<dict>
 			<key>match</key>
@@ -368,6 +494,111 @@
 				</dict>
 			</array>
 		</dict>
+		<key>parameter-default-types</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#strings</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#numbers</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#variables</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>=</string>
+					<key>name</key>
+					<string>keyword.operator.assignment.php</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(\[)</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.array.begin.puppet</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\]</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.array.end.puppet</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>meta.array.php</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#parameter-default-types</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#constants</string>
+				</dict>
+			</array>
+		</dict>
+		<key>single-quoted-string</key>
+		<dict>
+			<key>begin</key>
+			<string>'</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.puppet</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>'</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.puppet</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.single.puppet</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
+				</dict>
+			</array>
+		</dict>
+		<key>strings</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#double-quoted-string</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#single-quoted-string</string>
+				</dict>
+			</array>
+		</dict>
 		<key>variable</key>
 		<dict>
 			<key>patterns</key>
@@ -403,7 +634,7 @@
 					<key>match</key>
 					<string>(\$\{)(?:[a-zA-Zx7f-xff\$]|::)(?:[a-zA-Z0-9_x7f-xff\$]|::)*(\})</string>
 					<key>name</key>
-					<string>variable.other.readwrite.global.perl</string>
+					<string>variable.other.readwrite.global.puppet</string>
 				</dict>
 			</array>
 		</dict>

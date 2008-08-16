@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>changed</key>
+	<dict>
+		<key>repository.variable.patterns</key>
+		<array>
+			<dict>
+				<key>captures</key>
+				<dict>
+					<key>1</key>
+					<dict>
+						<key>name</key>
+						<string>punctuation.definition.variable.puppet</string>
+					</dict>
+				</dict>
+				<key>match</key>
+				<string>(\$)([a-zA-Zx7f-xff\$]|::)([a-zA-Z0-9_x7f-xff\$]|::)*\b</string>
+				<key>name</key>
+				<string>variable.other.readwrite.global.puppet</string>
+			</dict>
+			<dict>
+				<key>captures</key>
+				<dict>
+					<key>1</key>
+					<dict>
+						<key>name</key>
+						<string>punctuation.definition.variable.puppet</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>name</key>
+						<string>punctuation.definition.variable.puppet</string>
+					</dict>
+				</dict>
+				<key>match</key>
+				<string>(\$\{)(?:[a-zA-Zx7f-xff\$]|::)(?:[a-zA-Z0-9_x7f-xff\$]|::)*(\})</string>
+				<key>name</key>
+				<string>variable.other.readwrite.global.puppet</string>
+			</dict>
+		</array>
+	</dict>
+	<key>deleted</key>
+	<array/>
+	<key>isDelta</key>
+	<true/>
+	<key>uuid</key>
+	<string>AAF4E089-E3C9-4FB9-B099-FD2CCBD4E786</string>
+</dict>
+</plist>
