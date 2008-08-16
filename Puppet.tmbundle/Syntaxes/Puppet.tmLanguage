@@ -171,7 +171,15 @@
 			</dict>
 			<key>match</key>
 			<string>(?x)^\s*
-					@?@?(file|exec|user|group|package|service|cron|sshkey|ssh_authorized_key)\s*\{</string>
+					@?@?(
+					    file|exec|user|group|package|service|cron|sshkey|ssh_authorized_key
+					    |filebucket|host|interface|k5login|mailalias|maillist|mount
+					    |nagios_command|nagios_contact|nagios_contactgroup|nagios_host
+					    |nagios_hostextinfo|nagios_hostgroup|nagios_hostgroupescalation|nagios_service
+					    |nagios_servicedependency|nagios_serviceescalation
+					    |nagios_serviceextinfo|nagios_timeperiod
+					    |notify|resources|schedule|tidy|yumrepo|zone
+                    )\s*\{</string>
 			<key>name</key>
 			<string>meta.definition.resource.puppet</string>
 		</dict>
