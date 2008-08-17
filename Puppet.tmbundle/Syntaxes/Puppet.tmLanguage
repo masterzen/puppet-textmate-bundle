@@ -22,7 +22,7 @@
 			<key>begin</key>
 			<string>(?x)^\s*
 					(node|class)\s+
-					(\w+)\s* # identifier</string>
+					((?:[-_A-Za-z0-9".]+::)*[-_A-Za-z0-9".]+)\s* # identifier</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
@@ -61,7 +61,7 @@
 					<array>
 						<dict>
 							<key>match</key>
-							<string>\b((?:\w+::)*\w+)\b</string>
+							<string>\b((?:[-_A-Za-z0-9".]+::)*[-_A-Za-z0-9".]+)\b</string>
 							<key>name</key>
 							<string>support.type.puppet</string>
 						</dict>
@@ -185,13 +185,13 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(case|if|else)\b</string>
+			<string>\b(case|if|else)(?!::)</string>
 			<key>name</key>
 			<string>keyword.control.puppet</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>((\$?)"?[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*"?):</string>
+			<string>((\$?)"?[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*"?):(?=\s+|$)</string>
 			<key>name</key>
 			<string>entity.name.section.puppet</string>
 		</dict>
