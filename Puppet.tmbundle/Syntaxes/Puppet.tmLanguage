@@ -10,6 +10,8 @@
 	<string>(/\*|(\{|\[|\()\s*$)</string>
 	<key>foldingStopMarker</key>
 	<string>(\*/|^\s*(\}|\]|\)))</string>
+	<key>keyEquivalent</key>
+	<string>^~P</string>
 	<key>name</key>
 	<string>Puppet</string>
 	<key>patterns</key>
