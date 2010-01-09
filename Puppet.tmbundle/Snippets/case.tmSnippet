@@ -3,17 +3,18 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>case ${0:$variable} {
-	'$1' =&gt; {
-		$2 
-	},
-	default =&gt; {
-		$3
+	<string>case \$${1:variable} {
+	"${2:value}": {
+		${3:# code}
 	}
-}
-</string>
+	default: {
+		${4:# code}
+	}
+}$0</string>
 	<key>name</key>
 	<string>case</string>
+	<key>scope</key>
+	<string>source.puppet</string>
 	<key>tabTrigger</key>
 	<string>case</string>
 	<key>uuid</key>
