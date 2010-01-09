@@ -4,11 +4,12 @@
 <dict>
 	<key>content</key>
 	<string>else {
-	${0:# enter puppet code}
-}
-</string>
+	${1:# enter puppet code}
+}$0</string>
 	<key>name</key>
 	<string>else</string>
+	<key>scope</key>
+	<string>source.puppet</string>
 	<key>tabTrigger</key>
 	<string>else</string>
 	<key>uuid</key>

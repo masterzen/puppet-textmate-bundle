@@ -3,12 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>cron {
-	"${1:name}":
-		$2
-}</string>
+	<string>cron { "${1:name}":
+	$2
+}$0</string>
 	<key>name</key>
 	<string>cron</string>
+	<key>scope</key>
+	<string>source.puppet</string>
 	<key>tabTrigger</key>
 	<string>cron</string>
 	<key>uuid</key>

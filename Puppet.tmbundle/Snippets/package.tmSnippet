@@ -3,12 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>package {
-	"${1:name}":
-		ensure =&gt; ${2:installed},
-}</string>
+	<string>package { "${1:name}":
+	ensure =&gt; ${2:installed},
+}$0</string>
 	<key>name</key>
 	<string>package</string>
+	<key>scope</key>
+	<string>source.puppet</string>
 	<key>tabTrigger</key>
 	<string>package</string>
 	<key>uuid</key>

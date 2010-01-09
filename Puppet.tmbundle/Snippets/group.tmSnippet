@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>group {
-	"${1:name}":
-		gid =&gt; $2,
-}
-</string>
+	<string>group { "${1:name}":
+	gid =&gt; $2,
+}$0</string>
 	<key>name</key>
 	<string>group</string>
+	<key>scope</key>
+	<string>source.puppet</string>
 	<key>tabTrigger</key>
 	<string>group</string>
 	<key>uuid</key>

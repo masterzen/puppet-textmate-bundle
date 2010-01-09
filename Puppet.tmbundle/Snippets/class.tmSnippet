@@ -7,11 +7,12 @@
 #
 #
 class ${1:name} {
-	$0
-}
-</string>
+	${2:# resources}
+}$0</string>
 	<key>name</key>
 	<string>class</string>
+	<key>scope</key>
+	<string>source.puppet</string>
 	<key>tabTrigger</key>
 	<string>class</string>
 	<key>uuid</key>

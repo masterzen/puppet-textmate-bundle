@@ -3,12 +3,18 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>user {
-	"${0:name}":
-		uid =&gt; $1,
-}</string>
+	<string>user { "${1:name}":
+	comment =&gt; "${2:First Last}",
+	home =&gt; "${3:/home/$1}",
+	ensure =&gt; ${4:present},
+	#shell =&gt; "/bin/bash",
+	#uid =&gt; '501',
+	#gid =&gt; '20'
+}$0</string>
 	<key>name</key>
 	<string>user</string>
+	<key>scope</key>
+	<string>source.puppet</string>
 	<key>tabTrigger</key>
 	<string>user</string>
 	<key>uuid</key>

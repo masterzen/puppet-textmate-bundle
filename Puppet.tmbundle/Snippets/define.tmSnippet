@@ -8,11 +8,12 @@
 # $2
 #
 define ${1:name} (${2:arguments}) {
-	${0:# puppet code}
-}
-</string>
+	${3:# puppet code}
+}$0</string>
 	<key>name</key>
 	<string>define</string>
+	<key>scope</key>
+	<string>source.puppet</string>
 	<key>tabTrigger</key>
 	<string>define</string>
 	<key>uuid</key>

@@ -3,12 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>$0 ? {
-	'$1' =&gt; $2,
-	$3
-}</string>
+	<string>\$${1:variable} ? {
+	"${2:key}" =&gt; "${3:value}",
+	default =&gt; "${4:value}",
+}$0</string>
 	<key>name</key>
 	<string>selector</string>
+	<key>scope</key>
+	<string>source.puppet</string>
 	<key>tabTrigger</key>
 	<string>?</string>
 	<key>uuid</key>
