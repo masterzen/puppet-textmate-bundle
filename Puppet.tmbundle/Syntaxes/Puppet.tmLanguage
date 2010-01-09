@@ -7,7 +7,7 @@
 		<string>pp</string>
 	</array>
 	<key>foldingStartMarker</key>
-	<string>(/\*|(\{|\[|\()\s*$)</string>
+	<string>(^\s*/\*|(\{|\[|\()\s*$)</string>
 	<key>foldingStopMarker</key>
 	<string>(\*/|^\s*(\}|\]|\)))</string>
 	<key>keyEquivalent</key>
@@ -19,6 +19,14 @@
 		<dict>
 			<key>include</key>
 			<string>#line_comment</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>^\s*/\*</string>
+			<key>end</key>
+			<string>\*/</string>
+			<key>name</key>
+			<string>comment.block.puppet</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -170,18 +178,14 @@
 					<key>name</key>
 					<string>storage.type.puppet</string>
 				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.section.puppet</string>
+				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?x)^\s*
-					@?@?(
-					    file|exec|user|group|package|service|cron|sshkey|ssh_authorized_key
-					    |filebucket|host|interface|k5login|mailalias|maillist|mount
-					    |nagios_command|nagios_contact|nagios_contactgroup|nagios_host
-					    |nagios_hostextinfo|nagios_hostgroup|nagios_hostgroupescalation|nagios_service
-					    |nagios_servicedependency|nagios_serviceescalation
-					    |nagios_serviceextinfo|nagios_timeperiod
-					    |notify|resources|schedule|tidy|yumrepo|zone
-                    )\s*\{</string>
+			<string>^\s*(\w+)\s*{\s*(['"].+['"]):</string>
 			<key>name</key>
 			<string>meta.definition.resource.puppet</string>
 		</dict>
