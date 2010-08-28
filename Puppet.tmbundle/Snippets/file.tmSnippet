@@ -4,7 +4,10 @@
 <dict>
 	<key>content</key>
 	<string>file { "${1:name}":
-	ensure =&gt; ${2:file},
+	owner =&gt; ${2:owner},
+	group =&gt; ${3:group},
+	mode =&gt; ${4:mode},
+	ensure =&gt; ${5:file}
 }$0</string>
 	<key>name</key>
 	<string>file</string>
