@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>zfs { "${1:name}":
+	compression =&gt; ${2:on},
+	mountpoint =&gt; "${3:/path}",
+	ensure =&gt; ${4:present},
+}$0</string>
+	<key>name</key>
+	<string>zfs</string>
+	<key>tabTrigger</key>
+	<string>zfs</string>
+	<key>uuid</key>
+	<string>F1C90FBE-2918-4CCE-9504-D1D717D0540E</string>
+</dict>
+</plist>
