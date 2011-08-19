@@ -6,14 +6,17 @@
 	<string>saveActiveFile</string>
 	<key>command</key>
 	<string>#!/usr/bin/env ruby
+
 require ENV['TM_SUPPORT_PATH'] + '/lib/textmate'
-puts "&lt;p&gt;Running syntax check&amp;hellip;&lt;/p&gt;\n"
-result = `puppet --color=false --confdir=/tmp/puppet --vardir=/tmp/puppet --parseonly $TM_FILEPATH`
-puts "&lt;pre&gt;"
-puts result
-puts "&lt;/pre&gt;"
-puts "&lt;p&gt;Check complete.&lt;/p&gt;\n"
-TextMate.go_to :line =&gt; $1 if result =~ /:(\d+)$/</string>
+
+puppet_version=`/usr/bin/puppet --version`.strip
+
+puts "Running Puppet #{puppet_version} syntax check..."
+result = `/usr/bin/puppet parser validate --storeconfigs --color=false --confdir=/tmp/puppet --vardir=/tmp/puppet $TM_FILEPATH`
+puts ""
+puts result == "" ? "Syntax OK." : result
+puts ""
+TextMate.go_to :line => $1 if result =~ /:(\d+)$/</string>
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>
