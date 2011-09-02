@@ -3,16 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>file { "${1:name}":
-	ensure =&gt; ${2:file},
+	<string>zpool { "${1:name}":
+	${2:mirror} =&gt; ${3:disks},
 }$0</string>
 	<key>name</key>
-	<string>file</string>
-	<key>scope</key>
-	<string>source.puppet</string>
+	<string>zpool</string>
 	<key>tabTrigger</key>
-	<string>file</string>
+	<string>zpool</string>
 	<key>uuid</key>
-	<string>C84524F5-B248-4A4B-87B9-69DCA93C393F</string>
+	<string>9C25CB6B-B206-4943-B86A-E2F08AF67EA3</string>
 </dict>
 </plist>
