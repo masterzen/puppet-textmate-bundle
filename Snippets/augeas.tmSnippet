@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>augeas { "${1:name}":
+	context =&gt; "${2:/files/etc/sysconfig/firstboot}",
+	changes =&gt; "${3:set RUN_FIRSTBOOT YES}",
+}$0</string>
+	<key>name</key>
+	<string>augeas</string>
+	<key>tabTrigger</key>
+	<string>augeas</string>
+	<key>uuid</key>
+	<string>42E71A18-D2BA-43D7-9241-019E91F90A2C</string>
+</dict>
+</plist>
