@@ -4,8 +4,8 @@
 <dict>
 	<key>content</key>
 	<string>\$${1:variable} ? {
-	"${2:key}" =&gt; "${3:value}",
-	default =&gt; "${4:value}",
+	'${2:key}' =&gt; '${3:value}',
+	default =&gt; '${4:value}',
 }$0</string>
 	<key>name</key>
 	<string>selector</string>

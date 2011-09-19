@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>file { "${1:name}":
+	<string>file { '${1:name}':
 	ensure =&gt; ${2:file},
 }$0</string>
 	<key>name</key>
