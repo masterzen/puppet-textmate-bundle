@@ -3,18 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>
-yumrepo {
-        "${1:name}":
-        baseurl =&gt; "${2}",
-        descr =&gt; "${3:The $1 repository}",
-        enabled =&gt; "${4:1}",
-        gpgcheck =&gt; "${5:1}",
-        gpgkey =&gt; "${6:file:///etc/pki/rpm-gpg/RPM-GPG-KEY-$1}",
-        mirrorlist =&gt; "${7}"
-}
-
-$0</string>
+	<string>yumrepo { '${1:name}':
+	baseurl =&gt; '${2}',
+	descr =&gt; '${3:The $1 repository}',
+	enabled =&gt; '${4:1}',
+	gpgcheck =&gt; '${5:1}',
+	gpgkey =&gt; '${6:file:///etc/pki/rpm-gpg/RPM-GPG-KEY-$1}',
+	mirrorlist =&gt; '${7}'
+}$0</string>
 	<key>name</key>
 	<string>yumrepo</string>
 	<key>scope</key>

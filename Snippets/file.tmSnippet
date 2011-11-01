@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>file { "${1:name}":
-	owner =&gt; ${2:owner},
-	group =&gt; ${3:group},
-	mode =&gt; ${4:mode},
+	<string>file { '${1:name}':
+	owner  =&gt; ${2:owner},
+	group  =&gt; ${3:group},
+	mode   =&gt; ${4:mode},
 	ensure =&gt; ${5:file}
 }$0</string>
 	<key>name</key>

@@ -14,5 +14,5 @@ Puppet (http://www.reductivelabs.com/) manifests.
 This bundle supports directly:
  * syntax highlighting of most of the puppet syntax
  * common resources or standard language snippets
- * command to check syntax of manifests (puppet --parseonly)
+ * command to check syntax of manifests (puppet parser validate)
  * function menu containing hierarchical class/nodes/define and resources titles
