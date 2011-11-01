@@ -4,7 +4,11 @@
 <dict>
 	<key>content</key>
 	<string>service { "${1:name}":
-	ensure =&gt; ${2:running},
+	ensure     =&gt; ${2:running},
+	enable     =&gt; ${3:true},
+	hasrestart =&gt; true,
+	hasstatus  =&gt; true,
+	# pattern    =&gt; '${1:name}',
 }$0</string>
 	<key>name</key>
 	<string>service</string>
