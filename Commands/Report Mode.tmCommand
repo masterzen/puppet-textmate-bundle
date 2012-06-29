@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveModifiedFiles</string>
+	<key>command</key>
+	<string>#!/bin/bash
+CUSTOM='--no-80chars-check --no-double_quoted_strings-check'
+FORMAT="&lt;li class='%{kind}'&gt;%{path}:%{linenumber}&lt;br&gt;%{check} %{message}&lt;/li&gt;"
+FILES=${TM_PROJECT_DIRECTORY:-$TM_FILEPATH}
+
+cat &lt;&lt;EOF
+&lt;html&gt;&lt;body&gt;&lt;ul&gt;
+EOF
+
+puppet-lint $CUSTOM --log-format "$FORMAT" $FILES
+
+cat &lt;&lt;EOF
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;
+EOF
+</string>
+	<key>input</key>
+	<string>document</string>
+	<key>keyEquivalent</key>
+	<string>^~v</string>
+	<key>name</key>
+	<string>Report Mode</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>scope.puppet</string>
+	<key>uuid</key>
+	<string>4C5EF528-33E5-448A-B7CB-CD0858FA1FD6</string>
+</dict>
+</plist>
