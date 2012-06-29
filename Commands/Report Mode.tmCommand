@@ -2,10 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>changed</key>
-	<dict>
-		<key>command</key>
-		<string>#!/bin/bash
+	<key>beforeRunningCommand</key>
+	<string>saveModifiedFiles</string>
+	<key>command</key>
+	<string>#!/bin/bash
 CUSTOM='--no-80chars-check --no-double_quoted_strings-check'
 FILES=${TM_PROJECT_DIRECTORY:-$TM_FILEPATH}
 
@@ -40,13 +40,16 @@ cat &lt;&lt;EOF
 &lt;/table&gt;&lt;/body&gt;&lt;/html&gt;
 EOF
 </string>
-		<key>scope</key>
-		<string>source.puppet</string>
-	</dict>
-	<key>deleted</key>
-	<array/>
-	<key>isDelta</key>
-	<true/>
+	<key>input</key>
+	<string>document</string>
+	<key>keyEquivalent</key>
+	<string>^~v</string>
+	<key>name</key>
+	<string>Report Mode</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>source.puppet</string>
 	<key>uuid</key>
 	<string>4C5EF528-33E5-448A-B7CB-CD0858FA1FD6</string>
 </dict>
