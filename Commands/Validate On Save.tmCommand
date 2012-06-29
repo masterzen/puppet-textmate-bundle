@@ -5,7 +5,10 @@
 	<key>beforeRunningCommand</key>
 	<string>saveActiveFile</string>
 	<key>command</key>
-	<string>puppet-lint --no-80chars-check --no-double_quoted_strings-check $TM_FILEPATH</string>
+	<string>#!/bin/bash
+CUSTOM='--no-80chars-check --no-double_quoted_strings-check --no-trailing_whitespace-check'
+puppet-lint $CUSTOM $TM_FILEPATH
+</string>
 	<key>input</key>
 	<string>document</string>
 	<key>keyEquivalent</key>

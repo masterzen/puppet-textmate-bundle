@@ -32,9 +32,9 @@ EOF
 FORMAT="
 &lt;tr class='%{kind}'&gt;
 &lt;td&gt;
-	&lt;a class='btn btn-%{kind}' title='%{fullpath}' href='txmt://open?url=file://%{fullpath}&amp;line=%{linenumber}'&gt;%{filename}:%{linenumber}&lt;/a&gt;
+	&lt;a title='%{fullpath}' href='txmt://open?url=file://%{fullpath}&amp;line=%{linenumber}'&gt;%{filename}:%{linenumber}&lt;/a&gt;
 &lt;/td&gt;
-&lt;td&gt;%{kind}&lt;/td&gt;
+&lt;td class='btn-%{kind}'&gt;%{kind}&lt;/td&gt;
 &lt;td title='%{check}'&gt;%{message}&lt;/td&gt;
 &lt;/tr&gt;"
 
