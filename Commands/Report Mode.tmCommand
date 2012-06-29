@@ -6,16 +6,21 @@
 	<string>saveModifiedFiles</string>
 	<key>command</key>
 	<string>#!/bin/bash
-CUSTOM='--no-80chars-check --no-double_quoted_strings-check'
-FILES=${TM_PROJECT_DIRECTORY:-$TM_FILEPATH}
+CUSTOM='--no-80chars-check --no-double_quoted_strings-check --no-trailing_whitespace-check'
+if [ "$TM_PROJECT_DIRECTORY" == "" ]; then
+  FILES=$TM_FILEPATH
+else
+  FILES=`find $TM_PROJECT_DIRECTORY -name "*.pp"`
+fi
 
 cat &lt;&lt;EOF
 &lt;html&gt;
 &lt;head&gt;
-    &lt;link href="file://$TM_SUPPORT_PATH/bootstrap.css" rel="stylesheet" /&gt;
+    &lt;link href="file://$TM_BUNDLE_SUPPORT/bootstrap.css" rel="stylesheet" /&gt;
 &lt;/head&gt;
 
-&lt;body&gt;&lt;table class="table table-striped table-condensed"&gt;
+&lt;body&gt;
+&lt;table class="table table-striped table-condensed"&gt;
 &lt;thead&gt;&lt;tr&gt;
 &lt;th&gt;File&lt;/th&gt;
 &lt;th&gt;Kind&lt;/th&gt;
@@ -27,13 +32,15 @@ EOF
 FORMAT="
 &lt;tr class='%{kind}'&gt;
 &lt;td&gt;
-	&lt;a class='btn btn-%{kind}' href='txmt://open?url=file://%{fullpath}&amp;line=%{linenumber}'&gt;%{filename}:%{linenumber}&lt;/a&gt;
+	&lt;a class='btn btn-%{kind}' title='%{fullpath}' href='txmt://open?url=file://%{fullpath}&amp;line=%{linenumber}'&gt;%{filename}:%{linenumber}&lt;/a&gt;
 &lt;/td&gt;
 &lt;td&gt;%{kind}&lt;/td&gt;
 &lt;td title='%{check}'&gt;%{message}&lt;/td&gt;
 &lt;/tr&gt;"
 
-puppet-lint $CUSTOM --log-format "$FORMAT" $FILES
+for F in $FILES; do
+	puppet-lint $CUSTOM --log-format "$FORMAT" $F
+done
 
 cat &lt;&lt;EOF
 &lt;/tbody&gt;
