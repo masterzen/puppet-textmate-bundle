@@ -5,8 +5,7 @@
 	<key>content</key>
 	<string>exec { '${1:name}':
 	command =&gt; "${2:/bin/echo}",
-	#path =&gt; "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
-	#refreshonly =&gt; true,
+	$3
 }$0</string>
 	<key>name</key>
 	<string>exec</string>
