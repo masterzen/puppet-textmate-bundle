@@ -5,6 +5,7 @@
 	<key>content</key>
 	<string>package { "${1:name}":
 	ensure =&gt; ${2:installed},
+	$3
 }$0</string>
 	<key>name</key>
 	<string>package</string>

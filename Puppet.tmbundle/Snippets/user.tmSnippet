@@ -7,9 +7,7 @@
 	comment =&gt; "${2:First Last}",
 	home =&gt; "${3:/home/$1}",
 	ensure =&gt; ${4:present},
-	#shell =&gt; "/bin/bash",
-	#uid =&gt; '501',
-	#gid =&gt; '20'
+	$5
 }$0</string>
 	<key>name</key>
 	<string>user</string>
