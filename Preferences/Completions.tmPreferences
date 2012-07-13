@@ -26,6 +26,10 @@
 			<string>source</string>
 			<string>mode</string>
 			<string>recurse</string>
+			<string>class</string>
+			<string>define</string>
+			<string>node</string>
+			<string>import</string>
 		</array>
 	</dict>
 	<key>uuid</key>
