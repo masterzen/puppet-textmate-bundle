@@ -4,7 +4,8 @@
 <dict>
 	<key>content</key>
 	<string>file { "${1:name}":
-	ensure =&gt; ${2:file},
+	ensure =&gt; ${3:file},
+	source =&gt; "puppet:///modules/${2:class/file.txt}";
 }$0</string>
 	<key>name</key>
 	<string>file</string>
