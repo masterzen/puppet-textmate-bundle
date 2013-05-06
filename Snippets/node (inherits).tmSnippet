@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>node "${1:node}" inherits ${2:parent} {
+  ${3}
+}
+</string>
+	<key>name</key>
+	<string>node (inherits)</string>
+	<key>scope</key>
+	<string>source.puppet</string>
+	<key>tabTrigger</key>
+	<string>ni</string>
+	<key>uuid</key>
+	<string>25DEC6E2-1E89-4DB7-B0F0-0A082C5D5105</string>
+</dict>
+</plist>
