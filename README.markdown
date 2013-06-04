@@ -13,7 +13,7 @@ This bundle supports directly:
    * command to check syntax of manifests (puppet --parseonly)
    * function menu containing hierarchical class/nodes/define and resources titles
    * validates puppet on save with puppet-lint (1)
-   * validates all puppet in projeto with ctrl+option+v (1)
+   * validates all puppet in project with ctrl+option+v (1)
 
 To use last two features you need to have puppet-lint on command-line. To install it, typing on terminal:
 
