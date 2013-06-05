@@ -3,21 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>case \$${1:variable} {
-	'${2:value}': {
-		${3:# code}
-	}
-	default: {
-		${4:# code}
-	}
+	<string>augeas { "${1:name}":
+	context =&gt; "${2:/files/etc/sysconfig/firstboot}",
+	changes =&gt; "${3:set RUN_FIRSTBOOT YES}",
 }$0</string>
 	<key>name</key>
-	<string>case</string>
-	<key>scope</key>
-	<string>source.puppet</string>
+	<string>augeas</string>
 	<key>tabTrigger</key>
-	<string>case</string>
+	<string>augeas</string>
 	<key>uuid</key>
-	<string>4C76CA5D-F7F7-4354-AAAD-1F8B00D73823</string>
+	<string>42E71A18-D2BA-43D7-9241-019E91F90A2C</string>
 </dict>
 </plist>

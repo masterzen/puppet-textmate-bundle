@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>group { "${1:name}":
+	<string>group { '${1:name}':
 	gid =&gt; $2,
 }$0</string>
 	<key>name</key>

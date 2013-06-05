@@ -7,7 +7,7 @@
 	<key>command</key>
 	<string>#!/usr/bin/env ruby
 require ENV['TM_SUPPORT_PATH'] + '/lib/textmate'
-puts "&lt;p&gt;Running syntax check &amp;hellip;&lt;/p&gt;\n"
+puts "&lt;p&gt;Running syntax check&amp;hellip;&lt;/p&gt;\n"
 result = `puppet parser validate --color=false --confdir=/tmp/puppet --vardir=/tmp/puppet $TM_FILEPATH`
 puts "&lt;pre&gt;"
 puts result
