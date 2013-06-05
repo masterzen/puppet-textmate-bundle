@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>cron { "${1:name}":
-	$2
+	<string>group { '${1:name}':
+	gid =&gt; $2,
 }$0</string>
 	<key>name</key>
-	<string>cron</string>
+	<string>group</string>
 	<key>scope</key>
 	<string>source.puppet</string>
 	<key>tabTrigger</key>
-	<string>cron</string>
+	<string>group</string>
 	<key>uuid</key>
-	<string>C22C1778-E61D-40EC-8E06-4B4A5ABEC0E7</string>
+	<string>44C1B58A-0EF0-4022-A9EF-2D3B432C83FE</string>
 </dict>
 </plist>

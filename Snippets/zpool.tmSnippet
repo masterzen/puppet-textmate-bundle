@@ -3,21 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>case \$${1:variable} {
-	"${2:value}": {
-		${3:# code}
-	}
-	default: {
-		${4:# code}
-	}
+	<string>zpool { "${1:name}":
+	${2:mirror} =&gt; ${3:disks},
 }$0</string>
 	<key>name</key>
-	<string>case</string>
-	<key>scope</key>
-	<string>source.puppet</string>
+	<string>zpool</string>
 	<key>tabTrigger</key>
-	<string>case</string>
+	<string>zpool</string>
 	<key>uuid</key>
-	<string>4C76CA5D-F7F7-4354-AAAD-1F8B00D73823</string>
+	<string>9C25CB6B-B206-4943-B86A-E2F08AF67EA3</string>
 </dict>
 </plist>

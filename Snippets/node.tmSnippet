@@ -3,16 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>file { "${1:name}":
-	ensure =&gt; ${2:file},
-}$0</string>
+	<string>node "${1:node}" {
+  ${2}
+}
+</string>
 	<key>name</key>
-	<string>file</string>
+	<string>node</string>
 	<key>scope</key>
 	<string>source.puppet</string>
 	<key>tabTrigger</key>
-	<string>file</string>
+	<string>n</string>
 	<key>uuid</key>
-	<string>C84524F5-B248-4A4B-87B9-69DCA93C393F</string>
+	<string>29254536-3C66-4318-8138-8C22D0C5CFB2</string>
 </dict>
 </plist>

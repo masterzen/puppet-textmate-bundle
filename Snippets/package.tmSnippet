@@ -3,18 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>exec { "${1:name}":
-	command =&gt; "${2:/bin/echo}",
-	#path =&gt; "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
-	#refreshonly =&gt; true,
+	<string>package { '${1:name}':
+	ensure =&gt; ${2:installed},
 }$0</string>
 	<key>name</key>
-	<string>exec</string>
+	<string>package</string>
 	<key>scope</key>
 	<string>source.puppet</string>
 	<key>tabTrigger</key>
-	<string>exec</string>
+	<string>package</string>
 	<key>uuid</key>
-	<string>849952B4-0D8A-4B5F-996D-35D531AAAE81</string>
+	<string>1A1C51EE-AC6D-4F7F-A342-4D6DE1F4FAD3</string>
 </dict>
 </plist>
