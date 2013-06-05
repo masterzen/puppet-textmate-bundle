@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveModifiedFiles</string>
+	<key>command</key>
+	<string>#!/bin/bash
+CUSTOM='--no-80chars-check --no-double_quoted_strings-check --no-trailing_whitespace-check'
+if [ "$TM_PROJECT_DIRECTORY" == "" ]; then
+  FILES=$TM_FILEPATH
+else
+  FILES=`find $TM_PROJECT_DIRECTORY -name "*.pp"`
+fi
+
+cat &lt;&lt;EOF
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link href="file://$TM_BUNDLE_SUPPORT/bootstrap.css" rel="stylesheet" /&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;table class="table table-striped table-condensed"&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th&gt;File&lt;/th&gt;
+&lt;th&gt;Kind&lt;/th&gt;
+&lt;th&gt;Message&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+EOF
+
+FORMAT="
+&lt;tr class='%{kind}'&gt;
+&lt;td&gt;
+	&lt;a title='%{fullpath}' href='txmt://open?url=file://%{fullpath}&amp;line=%{linenumber}'&gt;%{filename}:%{linenumber}&lt;/a&gt;
+&lt;/td&gt;
+&lt;td class='btn-%{kind}'&gt;%{kind}&lt;/td&gt;
+&lt;td title='%{check}'&gt;%{message}&lt;/td&gt;
+&lt;/tr&gt;"
+
+for F in $FILES; do
+	puppet-lint $CUSTOM --log-format "$FORMAT" $F
+done
+
+cat &lt;&lt;EOF
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;
+EOF
+</string>
+	<key>input</key>
+	<string>document</string>
+	<key>keyEquivalent</key>
+	<string>^~v</string>
+	<key>name</key>
+	<string>Report Mode</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>source.puppet</string>
+	<key>uuid</key>
+	<string>4C5EF528-33E5-448A-B7CB-CD0858FA1FD6</string>
+</dict>
+</plist>

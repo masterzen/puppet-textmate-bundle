@@ -3,9 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>file { "${1:name}":
-	ensure =&gt; ${3:file},
-	source =&gt; "puppet:///modules/${2:class/file.txt}";
+	<string>file { '${1:name}':
+	ensure =&gt; ${2:file},
+	owner  =&gt; ${3:owner},
+	group  =&gt; ${4:group},
+	mode   =&gt; ${5:mode},
+	source =&gt; 'puppet:///modules/${6:class/file.txt}';
 }$0</string>
 	<key>name</key>
 	<string>file</string>
