@@ -8,7 +8,7 @@ TextMate 2 is Open Source and available from (http://github.com/textmate/textmat
 (It may work for Sublime Edit 2)
 
 ## Install
-To install, clone this repository and drag the puppet-textmate.tmbundle directory
+To install, clone this repository, rename it to puppet-textmate.tmbundle, and drag the puppet-textmate.tmbundle directory
 on the TextMate icon. The installation will then be automatic.
 
 ## Overview
